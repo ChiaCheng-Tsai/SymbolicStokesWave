@@ -1,22 +1,23 @@
 # SymbolicStokesWave
 A Mathematica code for solving Stokes wave in the Eulerian and Lagrangian descriptions
 
-# Files description:
-Stokes_Euler.nb : the main code
+Files description:
 
-Stokes_Euler.nb : the main code with 7-th order solution
+  Stokes_Euler.nb : the main code
 
-EulerPhi3 : result of the 3-rd order solution by velocity potential formulation
+  Stokes_Euler.nb : the main code with 7-th order solution
 
-EulerPhi5 : result of the 5-th order solution by velocity potential formulation
+  EulerPhi3 : result of the 3-rd order solution by velocity potential formulation
 
-EulerPhi7 : result of the 7-th order solution by velocity potential formulation
+  EulerPhi5 : result of the 5-th order solution by velocity potential formulation
 
-EulerPsi3 : result of the 3-rd order solution by Fenton(1985)'s stream function formulation
+  EulerPhi7 : result of the 7-th order solution by velocity potential formulation
 
-EulerPsi5 : result of the 5-th order solution by Fenton(1985)'s stream function formulation
+  EulerPsi3 : result of the 3-rd order solution by Fenton(1985)'s stream function formulation
 
-EulerPsi7 : result of the 7-th order solution by Fenton(1985)'s stream function formulation
+  EulerPsi5 : result of the 5-th order solution by Fenton(1985)'s stream function formulation
 
-FentonData: coefficients of Fenton(1985)
+  EulerPsi7 : result of the 7-th order solution by Fenton(1985)'s stream function formulation
+
+  FentonData: coefficients of Fenton(1985)
 
