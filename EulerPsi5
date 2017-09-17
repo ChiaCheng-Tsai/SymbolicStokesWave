@@ -1,0 +1,124 @@
+A[1, 0] = 0
+ 
+A[1, 1] = Csch[d*k]
+ 
+A[2, 1] = 0
+ 
+A[2, 2] = (3*Csch[d*k]^4)/8
+ 
+A[3, 0] = 0
+ 
+A[3, 1] = -((23 - 7*Cosh[2*d*k] + 10*Cosh[4*d*k] + Cosh[6*d*k])*Csch[d*k]^7)/
+     64
+ 
+A[3, 2] = 0
+ 
+A[3, 3] = -((-11 + 2*Cosh[2*d*k])*Csch[d*k]^7)/64
+ 
+A[4, 1] = 0
+ 
+A[4, 2] = -((281 + 111*Cosh[2*d*k] + 252*Cosh[4*d*k] + 7*Cosh[6*d*k] - 
+        3*Cosh[8*d*k])*Csch[d*k]^10)/1536
+ 
+A[4, 3] = 0
+ 
+A[4, 4] = ((382 + 597*Cosh[2*d*k] - 174*Cosh[4*d*k] + 5*Cosh[6*d*k])*
+      Csch[d*k]^10)/(3072*(2 + 3*Cosh[2*d*k]))
+ 
+A[5, 0] = 0
+ 
+A[5, 1] = ((42975 + 78648*Cosh[2*d*k] + 63618*Cosh[4*d*k] + 
+       39736*Cosh[6*d*k] + 19358*Cosh[8*d*k] + 5442*Cosh[10*d*k] + 
+       1358*Cosh[12*d*k] + 2*Cosh[14*d*k] - 37*Cosh[16*d*k])*Csch[d*k]^13)/
+     (16384*(2 + 3*Cosh[2*d*k])*(1 + 4*Cosh[2*d*k]))
+ 
+A[5, 2] = 0
+ 
+A[5, 3] = ((-8280 - 17334*Cosh[2*d*k] - 8802*Cosh[4*d*k] - 4979*Cosh[6*d*k] + 
+       408*Cosh[8*d*k] + 105*Cosh[10*d*k] + 2*Cosh[12*d*k])*Csch[d*k]^13)/
+     (32768*(2 + 3*Cosh[2*d*k]))
+ 
+A[5, 4] = 0
+ 
+A[5, 5] = ((7664 + 6890*Cosh[2*d*k] + 4496*Cosh[4*d*k] - 3119*Cosh[6*d*k] + 
+       272*Cosh[8*d*k] - 3*Cosh[10*d*k])*Csch[d*k]^13)/
+     (32768*(2 + 3*Cosh[2*d*k])*(1 + 4*Cosh[2*d*k]))
+BB[1, 0] = 0
+ 
+BB[1, 1] = 1
+ 
+BB[2, 1] = 0
+ 
+BB[2, 2] = ((2 + Cosh[2*d*k])*Coth[d*k]*Csch[d*k]^2)/4
+ 
+BB[3, 0] = 0
+ 
+BB[3, 1] = (-3*(14 + 15*Cosh[2*d*k] + 6*Cosh[4*d*k] + Cosh[6*d*k])*
+      Csch[d*k]^6)/256
+ 
+BB[3, 2] = 0
+ 
+BB[3, 3] = (3*(14 + 15*Cosh[2*d*k] + 6*Cosh[4*d*k] + Cosh[6*d*k])*
+      Csch[d*k]^6)/256
+ 
+BB[4, 1] = 0
+ 
+BB[4, 2] = ((-53 - 158*Cosh[2*d*k] - 104*Cosh[4*d*k] - 10*Cosh[6*d*k] + 
+       Cosh[8*d*k])*Coth[d*k]*Csch[d*k]^8)/384
+ 
+BB[4, 3] = 0
+ 
+BB[4, 4] = ((203 + 347*Cosh[2*d*k] + 158*Cosh[4*d*k] + 76*Cosh[6*d*k] + 
+       23*Cosh[8*d*k] + 3*Cosh[10*d*k])*Coth[d*k]*Csch[d*k]^8)/
+     (768*(2 + 3*Cosh[2*d*k]))
+ 
+BB[5, 0] = 0
+ 
+BB[5, 1] = ((2081002 + 3867653*Cosh[2*d*k] + 3021600*Cosh[4*d*k] + 
+       1910415*Cosh[6*d*k] + 884040*Cosh[8*d*k] + 259709*Cosh[10*d*k] + 
+       33824*Cosh[12*d*k] - 4177*Cosh[14*d*k] - 1266*Cosh[16*d*k])*
+      Csch[d*k]^12)/(786432*(8 + 11*Cosh[2*d*k] + 6*Cosh[4*d*k]))
+ 
+BB[5, 2] = 0
+ 
+BB[5, 3] = (-9*(9942 + 18596*Cosh[2*d*k] + 14465*Cosh[4*d*k] + 
+       6930*Cosh[6*d*k] + 1866*Cosh[8*d*k] + 74*Cosh[10*d*k] - 
+       33*Cosh[12*d*k])*Coth[d*k]^2*Csch[d*k]^10)/(131072*(2 + 3*Cosh[2*d*k]))
+ 
+BB[5, 4] = 0
+ 
+BB[5, 5] = (5*(148034 + 258553*Cosh[2*d*k] + 184128*Cosh[4*d*k] + 
+       102939*Cosh[6*d*k] + 51816*Cosh[8*d*k] + 22849*Cosh[10*d*k] + 
+       7552*Cosh[12*d*k] + 1579*Cosh[14*d*k] + 150*Cosh[16*d*k])*
+      Csch[d*k]^12)/(1572864*(2 + 3*Cosh[2*d*k])*(1 + 4*Cosh[2*d*k]))
+CC[0] = 1
+ 
+CC[1] = 0
+ 
+CC[2] = ((8 + Cosh[4*d*k])*Csch[d*k]^4)/16
+ 
+CC[3] = 0
+ 
+CC[4] = ((-168 - 622*Cosh[2*d*k] - 736*Cosh[4*d*k] - 111*Cosh[6*d*k] + 
+       16*Cosh[8*d*k] + Cosh[10*d*k])*Csch[d*k]^10)/4096
+ 
+CC[5] = 0
+DD[1] = 0
+ 
+DD[2] = -1/2
+ 
+DD[3] = 0
+ 
+DD[4] = ((8 + 5*Cosh[2*d*k] + 4*Cosh[4*d*k] + Cosh[6*d*k])*Csch[d*k]^6)/128
+ 
+DD[5] = 0
+EE[1] = 0
+ 
+EE[2] = ((6 + 2*Cosh[2*d*k] + Cosh[4*d*k])*Csch[d*k]^3*Sech[d*k])/16
+ 
+EE[3] = 0
+ 
+EE[4] = ((-145 - 302*Cosh[2*d*k] - 296*Cosh[4*d*k] - 71*Cosh[6*d*k] + 
+       3*Cosh[8*d*k] + Cosh[10*d*k])*Csch[d*k]^9*Sech[d*k])/2048
+ 
+EE[5] = 0
