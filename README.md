@@ -1,6 +1,6 @@
 # SymbolicStokesWave
 
-A Mathematica code for solving Stokes wave in the Eulerian and Lagrangian descriptions
+A Mathematica code for obtaining 7-th order Stokes waves in the Eulerian and Lagrangian descriptions
 
 ## Files description:
 
