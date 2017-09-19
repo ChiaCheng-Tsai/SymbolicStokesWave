@@ -4,7 +4,7 @@ A Mathematica code for obtaining 7-th order Stokes waves in the Eulerian and Lag
 
 ## Files description:
 
-### Eulerian solutions
+### Eulerian solutions:
 
 Stokes_Euler.nb : the main code for solving Eulerian solutions
 
@@ -26,7 +26,7 @@ FentonData.nb : code for producing coefficients of Fenton (1985)
 
 FentonData : coefficients of Fenton (1985)
 
-### Lagrangian solutions
+### Lagrangian solutions:
 
 Stokes_Lagrange.nb : the main code for solving Lagrangian solutions
 
