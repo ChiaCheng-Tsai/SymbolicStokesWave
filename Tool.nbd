@@ -1,0 +1,165 @@
+1
+FunSin[j_, cs_] := Module[{x, temp}, 
+     temp = Simplify[TrigExpand[Sin[j*x]] /. Cos[x] -> cs /. 
+         Sin[x] -> Sqrt[1 - cs^2]]; temp]
+ 
+FunCos[j_, cs_] := Module[{x, temp}, 
+     temp = Simplify[TrigExpand[Cos[j*x]] /. Cos[x] -> cs /. 
+         Sin[x] -> Sqrt[1 - cs^2]]; temp]
+ 
+FunSinh[j_, ch_] := Module[{x, temp}, 
+     temp = Simplify[TrigExpand[Sinh[j*x]] /. Cosh[x] -> ch /. 
+         Sinh[x] -> Sqrt[ch^2 - 1]]; temp]
+ 
+FunCosh[j_, ch_] := Module[{x, temp}, 
+     temp = Simplify[TrigExpand[Cosh[j*x]] /. Cosh[x] -> ch /. 
+         Sinh[x] -> Sqrt[ch^2 - 1]]; temp]
+ 
+SinPolyTran[f_, x_, cs_, L_, Lbegin_:0] := Module[{temp1, temp2}, 
+     temp1 = f; temp2 = f; Do[temp1 = temp1 /. Cos[m*x] -> FunCos[m, cs] /. 
+          Sin[m*x] -> FunSin[m, cs]; temp2 = 
+         temp2 /. Cos[m*x] -> FunCos[m, cs] /. Sin[m*x] -> -FunSin[m, cs], 
+       {m, Lbegin, L}]; (temp1 - temp2)/2]
+ 
+SinPolyTran1[f_, x_, y_, cs_, L_, Lbegin_:0] := Module[{temp1, temp2}, 
+     temp1 = f; temp2 = f; 
+      Do[temp1 = temp1 /. Cos[m*x + m*y] -> FunCos[m, cs] /. 
+            Cos[m*(x + y)] -> FunCos[m, cs] /. Sin[m*x + m*y] -> 
+            FunSin[m, cs] /. Sin[m*(x + y)] -> FunSin[m, cs]; 
+        temp2 = temp2 /. Cos[m*x + m*y] -> FunCos[m, cs] /. 
+            Cos[m*(x + y)] -> FunCos[m, cs] /. Sin[m*x + m*y] -> 
+            -FunSin[m, cs] /. Sin[m*(x + y)] -> -FunSin[m, cs], 
+       {m, Lbegin, L}]; (temp1 - temp2)/2]
+ 
+CosPolyTran[f_, x_, cs_, L_, Lbegin_:0] := Module[{temp1, temp2}, 
+     temp1 = f; temp2 = f; Do[temp1 = temp1 /. Cos[m*x] -> FunCos[m, cs] /. 
+          Sin[m*x] -> FunSin[m, cs]; temp2 = 
+         temp2 /. Cos[m*x] -> FunCos[m, cs] /. Sin[m*x] -> -FunSin[m, cs], 
+       {m, Lbegin, L}]; (temp1 + temp2)/2]
+ 
+CosPolyTran1[f_, x_, y_, cs_, L_, Lbegin_:0] := Module[{temp1, temp2}, 
+     temp1 = f; temp2 = f; 
+      Do[temp1 = temp1 /. Cos[m*x + m*y] -> FunCos[m, cs] /. 
+            Cos[m*(x + y)] -> FunCos[m, cs] /. Sin[m*x + m*y] -> 
+            FunSin[m, cs] /. Sin[m*(x + y)] -> FunSin[m, cs]; 
+        temp2 = temp2 /. Cos[m*x + m*y] -> FunCos[m, cs] /. 
+            Cos[m*(x + y)] -> FunCos[m, cs] /. Sin[m*x + m*y] -> 
+            -FunSin[m, cs] /. Sin[m*(x + y)] -> -FunSin[m, cs], 
+       {m, Lbegin, L}]; (temp1 + temp2)/2]
+ 
+TrigPolyTran[f_, x_, cs_, L_, Lbegin_:0] := Module[{temp}, 
+     temp = f; Do[temp = temp /. Cos[m*x] -> FunCos[m, cs] /. 
+         Sin[m*x] -> FunSin[m, cs], {m, Lbegin, L}]; temp]
+ 
+TrigPolyTran1[f_, x_, y_, cs_, L_, Lbegin_:0] := 
+    Module[{temp}, temp = f; 
+      Do[temp = temp /. Cos[m*x + m*y] -> FunCos[m, cs] /. 
+           Cos[m*(x + y)] -> FunCos[m, cs] /. Sin[m*x + m*y] -> 
+           FunSin[m, cs] /. Sin[m*(x + y)] -> FunSin[m, cs], {m, Lbegin, L}]; 
+      temp]
+ 
+SinhPolyTran[f_, x_, ch_, L_, Lbegin_:0] := Module[{temp1, temp2}, 
+     temp1 = f; temp2 = f; Do[temp1 = temp1 /. Sinh[m*x] -> FunSinh[m, ch] /. 
+          Cosh[m*x] -> FunCosh[m, ch]; temp2 = 
+         temp2 /. Sinh[m*x] -> -FunSinh[m, ch] /. Cosh[m*x] -> 
+           FunCosh[m, ch], {m, Lbegin, L}]; (temp1 - temp2)/2]
+ 
+SinhPolyTran1[f_, x_, y_, ch_, L_, Lbegin_:0] := Module[{temp1, temp2}, 
+     temp1 = f; temp2 = f; 
+      Do[temp1 = temp1 /. Sinh[m*x + m*y] -> FunSinh[m, ch] /. 
+            Sinh[m*(x + y)] -> FunSinh[m, ch] /. Cosh[m*x + m*y] -> 
+            FunCosh[m, ch] /. Cosh[m*(x + y)] -> FunCosh[m, ch]; 
+        temp2 = temp2 /. Sinh[m*x + m*y] -> -FunSinh[m, ch] /. 
+            Sinh[m*(x + y)] -> -FunSinh[m, ch] /. Cosh[m*x + m*y] -> 
+            FunCosh[m, ch] /. Cosh[m*(x + y)] -> FunCosh[m, ch], 
+       {m, Lbegin, L}]; (temp1 - temp2)/2]
+ 
+CoshPolyTran[f_, x_, ch_, L_, Lbegin_:0] := Module[{temp1, temp2}, 
+     temp1 = f; temp2 = f; Do[temp1 = temp1 /. Sinh[m*x] -> FunSinh[m, ch] /. 
+          Cosh[m*x] -> FunCosh[m, ch]; temp2 = 
+         temp2 /. Sinh[m*x] -> -FunSinh[m, ch] /. Cosh[m*x] -> 
+           FunCosh[m, ch], {m, Lbegin, L}]; (temp1 + temp2)/2]
+ 
+CoshPolyTran1[f_, x_, y_, ch_, L_, Lbegin_:0] := Module[{temp1, temp2}, 
+     temp1 = f; temp2 = f; 
+      Do[temp1 = temp1 /. Sinh[m*x + m*y] -> FunSinh[m, ch] /. 
+            Sinh[m*(x + y)] -> FunSinh[m, ch] /. Cosh[m*x + m*y] -> 
+            FunCosh[m, ch] /. Cosh[m*(x + y)] -> FunCosh[m, ch]; 
+        temp2 = temp2 /. Sinh[m*x + m*y] -> -FunSinh[m, ch] /. 
+            Sinh[m*(x + y)] -> -FunSinh[m, ch] /. Cosh[m*x + m*y] -> 
+            FunCosh[m, ch] /. Cosh[m*(x + y)] -> FunCosh[m, ch], 
+       {m, Lbegin, L}]; (temp1 + temp2)/2]
+ 
+HtrigPolyTran[f_, x_, ch_, L_, Lbegin_:0] := Module[{temp}, 
+     temp = f; Do[temp = temp /. Sinh[m*x] -> FunSinh[m, ch] /. 
+         Cosh[m*x] -> FunCosh[m, ch], {m, Lbegin, L}]; temp]
+ 
+HtrigPolyTran1[f_, x_, y_, ch_, L_, Lbegin_:0] := 
+    Module[{temp}, temp = f; 
+      Do[temp = temp /. Sinh[m*x + m*y] -> FunSinh[m, ch] /. 
+           Sinh[m*(x + y)] -> FunSinh[m, ch] /. Cosh[m*x + m*y] -> 
+           FunCosh[m, ch] /. Cosh[m*(x + y)] -> FunCosh[m, ch], 
+       {m, Lbegin, L}]; temp]
+ 
+SinPolyCoef[f_, cs_, \[Epsilon]_, mm_, ii_] := Module[{temp, aaa, ccc}, 
+     temp = (1/(ii!*(mm - 1)!))*D[D[f/Sqrt[1 - cs^2] /. cs -> aaa /. 
+           \[Epsilon] -> ccc, {ccc, ii}], {aaa, mm - 1}]; aaa := 0; ccc := 0; 
+      temp]
+ 
+CosPolyCoef[f_, cs_, \[Epsilon]_, mm_, ii_] := Module[{temp, aaa, ccc}, 
+     temp = D[D[f /. cs -> aaa /. \[Epsilon] -> ccc, {ccc, ii}], {aaa, mm}]/
+        (ii!*mm!); aaa := 0; ccc := 0; temp]
+ 
+SinSinhPolyCoef[f_, cs_, ch_, \[Epsilon]_, mm_, nn_, ii_] := 
+    Module[{temp, aaa, bbb, ccc}, temp = (1/(ii!*(mm - 1)!*(nn - 1)!))*
+        D[D[D[f/(Sqrt[1 - cs^2]*Sqrt[ch^2 - 1]) /. cs -> aaa /. ch -> bbb /. 
+            \[Epsilon] -> ccc, {ccc, ii}], {aaa, mm - 1}], {bbb, nn - 1}]; 
+      aaa := 0; bbb := 0; ccc := 0; temp]
+ 
+SinCoshPolyCoef[f_, cs_, ch_, \[Epsilon]_, mm_, nn_, ii_] := 
+    Module[{temp, aaa, bbb, ccc}, 
+     temp = (1/(ii!*(mm - 1)!*nn!))*
+        D[D[D[f/Sqrt[1 - cs^2] /. cs -> aaa /. ch -> bbb /. 
+            \[Epsilon] -> ccc, {ccc, ii}], {aaa, mm - 1}], {bbb, nn}]; 
+      aaa := 0; bbb := 0; ccc := 0; temp]
+ 
+CosSinhPolyCoef[f_, cs_, ch_, \[Epsilon]_, mm_, nn_, ii_] := 
+    Module[{temp, aaa, bbb, ccc}, 
+     temp = (1/(ii!*mm!*(nn - 1)!))*
+        D[D[D[f/Sqrt[ch^2 - 1] /. cs -> aaa /. ch -> bbb /. 
+            \[Epsilon] -> ccc, {ccc, ii}], {aaa, mm}], {bbb, nn - 1}]; 
+      aaa := 0; bbb := 0; ccc := 0; temp]
+ 
+CosCoshPolyCoef[f_, cs_, ch_, \[Epsilon]_, mm_, nn_, ii_] := 
+    Module[{temp, aaa, bbb, ccc}, 
+     temp = (1/(ii!*mm!*nn!))*D[D[D[f /. cs -> aaa /. ch -> bbb /. 
+            \[Epsilon] -> ccc, {ccc, ii}], {aaa, mm}], {bbb, nn}]; aaa := 0; 
+      bbb := 0; ccc := 0; temp]
+ 
+PolyCoef[f_, \[Epsilon]_, ii_] := Module[{temp, ccc}, 
+     temp = D[f /. \[Epsilon] -> ccc, {ccc, ii}]/ii!; ccc := 0; temp]
+ 
+PolyTrigCos[m_, n_] := Module[{x, c, temp}, 
+     temp = FourierCosCoefficient[Cos[x]^m, x, n]; temp]
+ 
+PolyTrigSin[m_, n_] := Module[{x, c, temp}, 
+     temp = FourierSinCoefficient[Cos[x]^(m - 1)*Sin[x], x, n]; temp]
+ 
+PolyTrigCosh[m_, n_] := Module[{x, c, temp}, 
+     temp = FourierCosCoefficient[Cos[x]^m, x, n]; temp]
+ 
+PolyTrigSinh[m_, n_] := Module[{x, c, temp}, 
+     temp = FourierSinCoefficient[Cos[x]^(m - 1)*Sin[x], x, n]; temp]
+ 
+MyTrigSimplify[x_, MaxIteration_:1000] := 
+    Simplify[ExpToTrig[Simplify[TrigToExp[x], TimeConstraint -> 
+        MaxIteration]], TimeConstraint -> MaxIteration]
+ 
+MyApproSimplify[x_, MaxIteration_:1000] := 
+    ExpToTrig[Simplify[TrigToExp[x], TimeConstraint -> MaxIteration]]
+ 
+MyExpSimplify[x_, MaxIteration_:1000] := Simplify[TrigToExp[x], 
+     TimeConstraint -> MaxIteration]
+ 
+MyExpSimplify[x_, Condition_, MaxIteration_:1000] := 
+    Simplify[TrigToExp[x], Condition, TimeConstraint -> MaxIteration]
